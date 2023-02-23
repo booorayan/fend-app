@@ -1,0 +1,51 @@
+<h1 style="{{darkcyan}}"> {{ title }} </h1>
+  <h2 [style]="cadetblue"> {{ sum() }}</h2>
+
+  <div>
+    <input #messageInput type="text" [(ngModel)]="message" >
+  <!--  <input #messageInput type="text" (keyup)="clickMe( messageInput.value )" >-->
+    <button (click)="clickMe( 'Howdy howdy' )">Click !!</button>
+  <!--  <button>Click !!</button>-->
+    <h3> {{ message }} </h3>
+
+  </div>
+
+  <div>
+    <button (click)="toggle()">Show/Hide</button>
+
+    <ng-template *ngIf="show; then showPrivate; else showPublic"></ng-template>
+
+    <ng-template #showPrivate>
+      <h3>Private Message... ...</h3>
+    </ng-template>
+
+    <ng-template #showPublic>
+      <h3>Public Message... ...</h3>
+    </ng-template>
+<!--    <h3 #showPublic>Public Message..</h3>-->
+
+  </div>
+  <div>
+    <button (click)="inc()">+</button>
+    <button (click)="dec()">-</button>
+
+    <table>
+      <ng-container *ngFor="let num of nums; index as i; even as even">
+        <tr [style]="even ? green : dcyan" style="color: black; text-align: center;">
+          <td style="width: 50px">
+             {{i+1}}
+          </td>
+          <td style="width: 100px">
+            {{num}}
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+
+
+
+
+  </div>
+  <div>
+
+  </div>
